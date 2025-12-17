@@ -2,6 +2,7 @@
 import { file } from "bun";
 import path from "node:path";
 import { execPath } from "process";
+import { Webview } from "webview-bun";
 
 // @ts-ignore
 import { assetMap } from "./assets.generated.ts";
@@ -130,5 +131,9 @@ const server = Bun.serve({
 		);
 	},
 });
+
+const webview = new Webview();
+webview.navigate(`http://localhost:${server.port}/`);
+webview.runNonBlocking();
 
 console.log(`💿 Listening on http://localhost:${server.port}`);

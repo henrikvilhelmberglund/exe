@@ -26,7 +26,8 @@
   "devDependencies": {
     "@sveltejs/kit": "^2.22.2",
     "@types/bun": "latest",
-    "@types/node": "^24.0.10"
+    "@types/node": "^24.0.10",
+    "webview-bun": "https://github.com/exoRift/webview-bun"
   },
   "peerDependencies": {
     "typescript": "^5"
