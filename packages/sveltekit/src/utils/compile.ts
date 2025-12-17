@@ -54,8 +54,8 @@ export async function compileApplication(
 	execSync(`bun ${compileArgs}`, { stdio: "inherit" });
 
 	// On Windows, Bun adds .exe extension automatically
-        const isWindows = process.platform === "win32";
-        const binaryPath = join(options.out, options.binaryName + (isWindows ? ".exe" : ""));
+	const isWindows = process.platform === "win32";
+	const binaryPath = join(options.out, options.binaryName + (isWindows ? ".exe" : ""));
 	const { size: sizeInBytes } = await stat(binaryPath);
 	const sizeInMb = (sizeInBytes / (1024 * 1024)).toFixed(1);
 
