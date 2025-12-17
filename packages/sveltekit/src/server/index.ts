@@ -1,4 +1,4 @@
-// Libs
+﻿// Libs
 import { file } from "bun";
 import path from "node:path";
 import { execPath } from "process";
@@ -107,6 +107,7 @@ process.on('SIGINT', gracefulShutdown);
 const server = Bun.serve({
 	port: process.env.PORT ? parseInt(process.env.PORT) : 3000,
 	hostname: "0.0.0.0",
+	idleTimeout: process.env.BUN_IDLE_TIMEOUT ? parseInt(process.env.BUN_IDLE_TIMEOUT) : 255,
 	async fetch(req: Request, bunServer: Bun.Server) {
 		// Handle static assets
 		const staticResponse = await staticServer.respond(req);
